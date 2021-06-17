@@ -4,7 +4,7 @@
 
   </header>
   <div class="items-sell-main">
-    <h2 class="items-sell-title">商品の情報を入力</h2>
+    <h2 class="items-sell-title">イベントの情報を入力</h2>
     <%= form_with local: true do |f| %>
 
     <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
@@ -14,7 +14,7 @@
     <%# 商品画像 %>
     <div class="img-upload">
       <div class="weight-bold-text">
-        商品画像
+        画像
         <span class="indispensable">必須</span>
       </div>
       <div class="click-upload">
@@ -28,39 +28,41 @@
     <%# 商品名と商品説明 %>
     <div class="new-items">
       <div class="weight-bold-text">
-        商品名
+        イベント名
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :hoge, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_area :hoge, class:"items-text", id:"item-name", placeholder:"イベント名（必須 40文字まで)", maxlength:"40" %>
       <div class="items-explain">
         <div class="weight-bold-text">
-          商品の説明
+          イベントの説明
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :hoge, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :hoge, class:"items-text", id:"item-info", placeholder:"イベントの説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
     <%# /商品名と商品説明 %>
 
     <%# 商品の詳細 %>
     <div class="items-detail">
-      <div class="weight-bold-text">商品の詳細</div>
+      <div class="weight-bold-text">イベントの詳細</div>
       <div class="form">
         <div class="weight-bold-text">
-          カテゴリー
+          グループ名
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-category"}) %>
+        <%= f.collection_select(:group_name_id, GroupName.all, :id, :name, {}, {class:"select-box", id:"group-name"}) %>
         <div class="weight-bold-text">
-          商品の状態
+          場所
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-sales-status"}) %>
+        <%= f.collection_select(:prefectures_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"event-prefecture"}) %>
       </div>
     </div>
     <%# /商品の詳細 %>
 
+<%#コメントアウト%>
     <%# 配送について %>
+    <%#
     <div class="items-detail">
       <div class="weight-bold-text question-text">
         <span>配送について</span>
@@ -72,21 +74,25 @@
           <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
+        <%#
         <div class="weight-bold-text">
           発送元の地域
           <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-prefecture"}) %>
+        <%#
         <div class="weight-bold-text">
           発送までの日数
           <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
+        <%#
       </div>
     </div>
     <%# /配送について %>
 
     <%# 販売価格 %>
+    <%#
     <div class="sell-price">
       <div class="weight-bold-text question-text">
         <span>販売価格<br>(¥300〜9,999,999)</span>
@@ -100,6 +106,7 @@
           </div>
           <span class="sell-yen">¥</span>
           <%= f.text_field :hoge, class:"price-input", id:"item-price", placeholder:"例）300" %>
+          <%#
         </div>
         <div class="price-content">
           <span>販売手数料 (10%)</span>
@@ -117,7 +124,11 @@
     </div>
     <%# /販売価格 %>
 
+    <%#ここまで%>
+
+    <%#さらにコメントアウト%>
     <%# 注意書き %>
+    <%#
     <div class="caution">
       <p class="sentence">
         <a href="#">禁止されている出品、</a>
@@ -136,9 +147,12 @@
       </p>
     </div>
     <%# /注意書き %>
+
+    <%#ここまで%>
+
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "出品する" ,class:"sell-btn" %>
+      <%= f.submit "登録する" ,class:"sell-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>

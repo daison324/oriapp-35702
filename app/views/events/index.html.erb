@@ -145,15 +145,15 @@
           <%# //商品が売れていればsold outを表示しましょう %>
 
         </div>
-        <div class='event-info'>
+        <div class='item-info'>
           <h3 class='event-name'>
             <%= "会場名" %>
           </h3>
-          <div class='group-name'>
+          <div class='item-price'>
             <span><%= "グループ名" %></span>
             <div class='star-btn'>
-             <%#  <%= image_tag "star.png", class:"star-icon" %>
-            <%#   <span class='star-count'>0</span> %>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'></span>
             </div>
           </div>
         </div>
@@ -187,8 +187,8 @@
   </div>
   <%# /商品一覧 %>
 </div>
-<%#= link_to('#', class: 'purchase-btn') do %>
-  <%#span class='purchase-btn-text'>出品する</span>
-  <%= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
-<%# end %>
+<%= link_to(new_event_path, class: 'purchase-btn') do %>
+  <span class='purchase-btn-text'>イベント<br>追加</span>
+  <%#= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+<% end %>
 <%= render "shared/footer" %>
