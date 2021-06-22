@@ -50,7 +50,10 @@
           グループ名
           <span class="indispensable">必須</span>
         </div>
+        <%= f.text_area :hoge, class:"groups-text", id:"group-name", placeholder:"グループ名（必須 40文字まで)", maxlength:"40" %>
+        <%#
         <%= f.collection_select(:group_name_id, GroupName.all, :id, :name, {}, {class:"select-box", id:"group-name"}) %>
+
         <div class="weight-bold-text">
           場所
           <span class="indispensable">必須</span>
@@ -151,8 +154,8 @@
     <%#ここまで%>
 
     <%# 下部ボタン %>
-    <div class="sell-btn-contents">
-      <%= f.submit "登録する" ,class:"sell-btn" %>
+    <div class="entry-btn-contents">
+      <%= f.submit "登録する" ,class:"entry-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
@@ -162,12 +165,12 @@
   <footer class="items-sell-footer">
     <ul class="menu">
       <li><a href="#">プライバシーポリシー</a></li>
-      <li><a href="#">フリマ利用規約</a></li>
+      <li><a href="#">アイドル現場.com利用規約</a></li>
       <li><a href="#">特定商取引に関する表記</a></li>
     </ul>
     <%= link_to image_tag('logo.png' , size: '185x50'), "/" %>
     <p class="inc">
-      ©︎Furima,Inc.
+      ©︎アイドル現場.com,Inc.
     </p>
   </footer>
 </div>
