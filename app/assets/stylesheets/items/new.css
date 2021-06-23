@@ -195,12 +195,12 @@
 
 /* 下部ボタン */
 
-.entry-btn-contents {
+.sell-btn-contents {
     width: 100%;
     text-align: center;
 }
 
-.entry-btn {
+.sell-btn {
     background: #ea352d;
     border: 1px solid #ea352d;
     color: #fff;

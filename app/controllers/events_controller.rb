@@ -13,7 +13,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(item_params)
+    @event = Event.new(event_params)
     if @event.save
       redirect_to root_path
     else
@@ -47,8 +47,8 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
-  def item_params
-    params.require(:event).permit(:image, :title, :text, :category_id, :state_id, :fee_id, :prefecture_id, :days_ship_id, :price, :group_name_id).merge(user_id: current_user.id)
+  def event_params
+    params.require(:event).permit(:image, :event_title, :text, :group_name, :category_id, :prefecture_id, ).merge(user_id: current_user.id)
   end
 
 

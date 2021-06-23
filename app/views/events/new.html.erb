@@ -5,13 +5,13 @@
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">イベントの情報を入力</h2>
-    <%= form_with local: true do |f| %>
+    <%= form_with model: @event, local: true do |f| %>
 
     <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
     <%# render 'shared/error_messages', model: f.object %>
     <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
 
-    <%# 商品画像 %>
+ 
     <div class="img-upload">
       <div class="weight-bold-text">
         画像
@@ -21,28 +21,27 @@
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :hoge, id:"item-image" %>
+        <%= f.file_field :image, id:"event-image" %>
       </div>
     </div>
-    <%# /商品画像 %>
-    <%# 商品名と商品説明 %>
+
+
     <div class="new-items">
       <div class="weight-bold-text">
         イベント名
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :hoge, class:"items-text", id:"item-name", placeholder:"イベント名（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_area :event_title, class:"items-text", id:"event_title", placeholder:"イベント名（必須 40文字まで)", maxlength:"40" %>
       <div class="items-explain">
         <div class="weight-bold-text">
           イベントの説明
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :hoge, class:"items-text", id:"item-info", placeholder:"イベントの説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :text, class:"items-text", id:"event-info", placeholder:"イベントの説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
-    <%# /商品名と商品説明 %>
 
-    <%# 商品の詳細 %>
+
     <div class="items-detail">
       <div class="weight-bold-text">イベントの詳細</div>
       <div class="form">
@@ -50,8 +49,9 @@
           グループ名
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :hoge, class:"groups-text", id:"group-name", placeholder:"グループ名（必須 40文字まで)", maxlength:"40" %>
         <%#
+        <%= f.text_area :group_name, class:"groups-text", id:"group-name", placeholder:"グループ名（必須 40文字まで)", maxlength:"40" %>
+        
         <%= f.collection_select(:group_name_id, GroupName.all, :id, :name, {}, {class:"select-box", id:"group-name"}) %>
 
         <div class="weight-bold-text">
@@ -59,9 +59,10 @@
           <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:prefectures_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"event-prefecture"}) %>
+        <%= f.text_area :place, class:"place-text", id:"group-name", placeholder:"場所（必須 40文字まで)", maxlength:"40" %>
       </div>
     </div>
-    <%# /商品の詳細 %>
+
 
 <%#コメントアウト%>
     <%# 配送について %>
@@ -154,8 +155,8 @@
     <%#ここまで%>
 
     <%# 下部ボタン %>
-    <div class="entry-btn-contents">
-      <%= f.submit "登録する" ,class:"entry-btn" %>
+    <div class="sell-btn-contents">
+      <%= f.submit "登録する" ,class:"sell-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
