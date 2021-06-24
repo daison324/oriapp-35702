@@ -37,13 +37,7 @@ ActiveRecord::Schema.define(version: 2021_06_23_085530) do
     t.string "event_title", null: false
     t.text "text", null: false
     t.integer "group_name", null: false
-    t.integer "place", null: false
-    t.integer "category_id", null: false
-    t.integer "description", null: false
-    t.integer "date", null: false
     t.integer "prefecture_id", null: false
-    t.integer "price", null: false
-    t.integer "ticket", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
