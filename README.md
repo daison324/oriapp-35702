@@ -1,24 +1,53 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# テーブル設計
 
-Things you may want to cover:
+## users テーブル
 
-* Ruby version
+| Column             | Type   | Options      |
+| ------------------ | ------ | ------------ |
+| nickname           | string | null: false  |
+| email              | string | unique: true |
+| encrypted_password | string | null: false  |
+| first_name         | string | null: false  |
+| last_name          | string | null: false  |
+| first_name_kana    | string | null: false  |
+| last_name_kana     | string | null: false  |
+| birthday           | date   | null: false  |
 
-* System dependencies
+Association
+has_many :events
+has_many :comments
+has_many :orders
 
-* Configuration
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
+## events テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| event_title      | string     | null: false                    |
+| text             | text       | null: false                    |
+| group_name       | integer    | null: false                    |
+| prefecture_id    | integer    | null: false                    |
+| user             | references | null: false, foreign_key: true |
 
-* Deployment instructions
+Association
+belongs_to :user
+has_one :order
+has_many :comments
+has_one_attached :image
 
-* ...
+
+## places テーブル
+
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| place         | references | null: false, foreign_key: true |
+| group_name    | references | null: false, foreign_key: true |
+
+Association
+belongs_to :user
+belongs_to :event
+has_one :address
