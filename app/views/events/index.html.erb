@@ -1,7 +1,7 @@
 <%= render "shared/header" %>
 <div class='main'>
 
-  <%# 画面上部の「人生を変えるフリマアプリ」帯部分 %>
+  <%# 画面上部の「人生を変えるアイドル現場.comアプリ」帯部分 %>
   <div class='title-contents'>
     <h2 class='service-title'>
       アイドル現場を探すアプリ
@@ -17,10 +17,10 @@
       <%= link_to image_tag("google-play.png", class:"google-btn"), "#" %>
     </div>
   </div>
-  <%# /画面上部の「人生を変えるフリマアプリ」帯部分  %>
+  <%# /画面上部の「人生を変えるアイドル現場.comアプリ」帯部分  %>
 
 
-  <%# FURIMAが選ばれる3つの理由部分 %>
+  <%# アイドル現場.comが選ばれる3つの理由部分 %>
   <div class='select-reason-contents'>
     <h2 class='title'>
       絞り込みメニュー
@@ -62,7 +62,7 @@
       </li>
     </ul>
   </div>
-  <%# /FURIMAが選ばれる3つの理由部分 %>
+  <%# /アイドル現場.comが選ばれる3つの理由部分 %>
 
   <%# 画面中央の「会員数日本一位」帯部分 %>
   <%#<div class='ad-contents'>
@@ -70,7 +70,7 @@
       会員数日本一位
     </h2>
     <p class='ad-explain'>
-      FURIMAは、フリマアプリで最も人気。
+      アイドル現場.comは、アイドル現場.comアプリで最も人気。
     </p>
     <p class='ad-explain'>
       出品・購入回数も業界最多です！
@@ -85,15 +85,15 @@
   </div>
   <%# /画面中央の「会員数日本一位」帯部分 %>
 
-  <%# FURIMAの特徴 %>
+  <%# アイドル現場.comの特徴 %>
   <%#
   <div class='feature-contents'>
     <h2 class='title'>
-      FURIMAの特徴
+      アイドル現場.comの特徴
     </h2>
     <ul class='feature-lists'>
       <li class='list'>
-        <%= image_tag "furima-intro04.png", class:"list-pict" %>
+        <%= image_tag "アイドル現場.com-intro04.png", class:"list-pict" %>
     <%#    <h3 class='feature-list-text'>
           簡単に売り買いできる
         </h3>
@@ -102,7 +102,7 @@
         </p>
       </li>
       <li class='list'>
-        <%= image_tag "furima-intro05.png", class:"list-pict" %>
+        <%= image_tag "アイドル現場.com-intro05.png", class:"list-pict" %>
     <%#    <h3 class='feature-list-text'>
           売上金は即日振込みに対応
         </h3>
@@ -111,7 +111,7 @@
         </p>
       </li>
       <li class='list'>
-        <%= image_tag "furima-intro06.png", class:"list-pict" %>
+        <%= image_tag "アイドル現場.com-intro06.png", class:"list-pict" %>
     <%#    <h3 class='feature-list-text'>
           様々な支払いに対応
         </h3>
@@ -121,7 +121,7 @@
       </li>
     </ul>
   </div>
-  <%# /FURIMAの特徴 %>
+  <%# /アイドル現場.comの特徴 %>
 
   <%# 商品一覧 %>
   <div class='item-contents'>
@@ -145,15 +145,15 @@
           <%# //商品が売れていればsold outを表示しましょう %>
 
         </div>
-        <div class='event-info'>
+        <div class='item-info'>
           <h3 class='event-name'>
             <%= "会場名" %>
           </h3>
-          <div class='group-name'>
+          <div class='item-price'>
             <span><%= "グループ名" %></span>
             <div class='star-btn'>
-             <%#  <%= image_tag "star.png", class:"star-icon" %>
-            <%#   <span class='star-count'>0</span> %>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'></span>
             </div>
           </div>
         </div>
@@ -187,8 +187,8 @@
   </div>
   <%# /商品一覧 %>
 </div>
-<%#= link_to('#', class: 'purchase-btn') do %>
-  <%#span class='purchase-btn-text'>出品する</span>
-  <%= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
-<%# end %>
+<%= link_to(new_event_path, class: 'purchase-btn') do %>
+  <span class='purchase-btn-text'>イベント<br>追加</span>
+  <%#= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+<% end %>
 <%= render "shared/footer" %>
